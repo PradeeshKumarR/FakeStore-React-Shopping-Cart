@@ -1,18 +1,77 @@
-# React + Vite
+# Fake Store React Shopping Cart
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a React application that fetches product data from the Fake Store API and implements an "Add to Cart" feature. The application is designed to be responsive and user-friendly, providing a seamless shopping experience.
 
-Currently, two official plugins are available:
+## Features
+- Fetches product data from the Fake Store API
+- Displays products in a grid layout with individual product cards
+- Allows users to add products to their cart
+- View and manage cart items
+- Responsive design for optimal viewing on various devices
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
 
-## React Compiler
+1. **Clone the repository:**
+   ```bash
+   git clone <your-repo-url>
+   ```
+2. **Navigate to the project directory:**
+   ```bash
+   cd FakeStore-React-Shopping-Cart-main
+   ```
+3. **Install the dependencies:**
+   ```bash
+   npm install
+   ```
+4. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+5. **Open your browser and navigate to the localhost URL shown in the terminal to view the application.**
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## Directory Structure
 
-Note: This will impact Vite dev & build performances.
+```
+FakeStore-React-Shopping-Cart-main/
+  src/
+    components/
+      ProductCard.jsx
+    hooks/
+      useCart.jsx
+    pages/
+      CartPage.jsx
+      ProductPage.jsx
+    App.jsx
+    main.jsx
+    index.css
+  .gitignore
+  README.md
+  eslint.config.js
+  index.html
+  package.json
+  vite.config.js
+```
 
-## Expanding the ESLint configuration
+- `src/components/` — React components for UI
+- `src/hooks/` — Custom React hooks
+- `src/pages/` — Page components for routing
+- `src/styles/` — CSS files for styling (if any)
+- `App.jsx` — Main application logic
+- `main.jsx` — Entry point for React
+- `index.css` — Global styles
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Usage
+- Browse through the available products.
+- Click on the "Add to Cart" button to add items to your cart.
+- Click on the cart icon or navigate to the cart page to view your cart items.
+- Remove items from the cart if needed.
+
+## Technologies Used
+- React
+- React Hooks
+- CSS for styling
+- Fake Store API for product data
+- Vite (for fast development and build)
+
+## License
+This project is for educational and demonstration purposes only.
