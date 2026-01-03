@@ -43,7 +43,9 @@ const ProductPage = () => {
         <main className="container mx-auto px-4 py-8">
             {/* Product listing page header */}
             <header className="mb-8">
-                <h1 className="text-3xl font-extrabold text-[#282c3f] text-center tracking-tight">Product List</h1>
+                <h1 className="text-3xl font-extrabold text-[#282c3f] text-center tracking-tight">
+                    Product List
+                </h1>
             </header>
             {/* Show loading or error messages */}
             {loading && <p className="text-center">Loading products...</p>}
