@@ -20,25 +20,31 @@ const initialState = []; // Initial state of the cart as an empty array
  */
 function cartReducer(state, action) {
     switch (action.type) {
-        case 'ADD': {
+        case "ADD": {
             // Check if product already exists in cart
-            const exists = state.find(item => item.id === action.product.id);
+            const exists = state.find((item) => item.id === action.product.id);
             if (exists) return state; // If it exists, do not add again
             return [...state, { ...action.product, quantity: 1 }]; // Add new product with quantity 1
         }
-        case 'REMOVE': {
+        case "REMOVE": {
             // Remove product from cart by filtering it out
-            return state.filter(item => item.id !== action.id);
+            return state.filter((item) => item.id !== action.id);
         }
-        case 'INCREASE': {
+        case "INCREASE": {
             // Increase quantity of the specified product
-            return state.map(item => item.id === action.id ? { ...item, quantity: item.quantity + 1 } : item);
+            return state.map((item) =>
+                item.id === action.id ? { ...item, quantity: item.quantity + 1 } : item
+            );
         }
-        case 'DECREASE': {
+        case "DECREASE": {
             // Decrease quantity of the specified product, ensuring it doesn't go below 1
-            return state.map(item => item.id === action.id && item.quantity > 1 ? { ...item, quantity: item.quantity - 1 } : item);
+            return state.map((item) =>
+                item.id === action.id && item.quantity > 1
+                    ? { ...item, quantity: item.quantity - 1 }
+                    : item
+            );
         }
-        case 'CLEAR': {
+        case "CLEAR": {
             // Clear the entire cart
             return [];
         }
@@ -65,11 +71,11 @@ export const CartProvider = ({ children }) => {
      */
     const addToCart = (product) => {
         try {
-            dispatch({ type: 'ADD', product });
+            dispatch({ type: "ADD", product });
         } catch (error) {
             console.error("Failed to add to cart:", error);
         }
-    }
+    };
 
     /**
      * Remove a product from the cart.
@@ -77,11 +83,11 @@ export const CartProvider = ({ children }) => {
      */
     const removeFromCart = (id) => {
         try {
-            dispatch({ type: 'REMOVE', id });
+            dispatch({ type: "REMOVE", id });
         } catch (error) {
             console.error("Failed to remove from cart:", error);
         }
-    }
+    };
 
     /**
      * Increase the quantity of a product in the cart.
@@ -89,11 +95,11 @@ export const CartProvider = ({ children }) => {
      */
     const increaseQuantity = (id) => {
         try {
-            dispatch({ type: 'INCREASE', id });
+            dispatch({ type: "INCREASE", id });
         } catch (error) {
             console.error("Failed to increase quantity:", error);
         }
-    }
+    };
 
     /**
      * Decrease the quantity of a product in the cart.
@@ -101,27 +107,36 @@ export const CartProvider = ({ children }) => {
      */
     const decreaseQuantity = (id) => {
         try {
-            dispatch({ type: 'DECREASE', id });
+            dispatch({ type: "DECREASE", id });
         } catch (error) {
             console.error("Failed to decrease quantity:", error);
         }
-    }
+    };
 
     /**
      * Clear all items from the cart.
      */
     const clearCart = () => {
         try {
-            dispatch({ type: 'CLEAR' });
+            dispatch({ type: "CLEAR" });
         } catch (error) {
             console.error("Failed to clear cart:", error);
         }
-    }
+    };
 
     // Provide cart state and action functions to children via CartContext
     return (
-        <CartContext.Provider value={{ cart, addToCart, removeFromCart, increaseQuantity, decreaseQuantity, clearCart }}>
+        <CartContext.Provider
+            value={{
+                cart,
+                addToCart,
+                removeFromCart,
+                increaseQuantity,
+                decreaseQuantity,
+                clearCart,
+            }}
+        >
             {children}
         </CartContext.Provider>
     );
-}
+};
