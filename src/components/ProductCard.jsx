@@ -31,14 +31,18 @@ const ProductCard = ({ product }) => {
                 />
             </div>
             {/* Product title */}
-            <h2 className="text-base font-semibold mb-1 line-clamp-2 min-h-[3rem]">{product.title}</h2>
+            <h2 className="text-base font-semibold mb-1 line-clamp-2 min-h-[3rem]">
+                {product.title}
+            </h2>
             {/* Product description */}
             <p className="text-gray-500 text-sm mb-2 line-clamp-2 text-justify">
                 {product.description.substring(0, 100)}...
             </p>
             <div className="mt-auto flex flex-col gap-2">
                 {/* Product price */}
-                <p className="text-lg font-bold text-[#ff3f6c] mb-1">${product.price}</p>
+                <p className="text-lg font-bold text-[#ff3f6c] mb-1">
+                    ${product.price}
+                </p>
                 {/* Show remove button if product is in cart and add button if not */}
                 {isInCart ? (
                     <button
