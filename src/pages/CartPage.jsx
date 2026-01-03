@@ -40,7 +40,9 @@ const CartPage = () => {
         <main className="container mx-auto px-2 py-8 flex flex-col items-center">
             {/* Cart page header */}
             <header className="mb-8 w-full">
-                <h1 className="text-3xl font-extrabold text-[#282c3f] text-center tracking-tight">Your Cart</h1>
+                <h1 className="text-3xl font-extrabold text-[#282c3f] text-center tracking-tight">
+                    Your Cart
+                </h1>
             </header>
             {/* Show message if cart is empty */}
             {cart.length === 0 ? (
@@ -52,17 +54,30 @@ const CartPage = () => {
                         <table className="min-w-full bg-white rounded-xl shadow-xl border border-gray-200 text-center">
                             <thead className="bg-gray-50">
                                 <tr>
-                                    <th className="p-3 font-semibold text-[#ff3f6c] text-center">Product</th>
-                                    <th className="p-3 font-semibold text-[#ff3f6c] text-center">Price</th>
-                                    <th className="p-3 font-semibold text-[#ff3f6c] text-center">Quantity</th>
-                                    <th className="p-3 font-semibold text-[#ff3f6c] text-center">Total</th>
-                                    <th className="p-3 font-semibold text-[#ff3f6c] text-center">Action</th>
+                                    <th className="p-3 font-semibold text-[#ff3f6c] text-center">
+                                        Product
+                                    </th>
+                                    <th className="p-3 font-semibold text-[#ff3f6c] text-center">
+                                        Price
+                                    </th>
+                                    <th className="p-3 font-semibold text-[#ff3f6c] text-center">
+                                        Quantity
+                                    </th>
+                                    <th className="p-3 font-semibold text-[#ff3f6c] text-center">
+                                        Total
+                                    </th>
+                                    <th className="p-3 font-semibold text-[#ff3f6c] text-center">
+                                        Action
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {/* Render each cart item as a table row */}
                                 {cart.map((item) => (
-                                    <tr key={item.id} className="border-b border-gray-300  hover:bg-gray-50">
+                                    <tr
+                                        key={item.id}
+                                        className="border-b border-gray-300  hover:bg-gray-50"
+                                    >
                                         <td className="p-3 flex flex-col sm:flex-row items-center gap-3  ">
                                             {/* Product image and title */}
                                             <img
@@ -70,9 +85,13 @@ const CartPage = () => {
                                                 alt={item.title}
                                                 className="h-12 w-12 object-contain bg-gray-50 rounded"
                                             />
-                                            <span className="font-medium sm:text-justify">{item.title}</span>
+                                            <span className="font-medium sm:text-justify">
+                                                {item.title}
+                                            </span>
                                         </td>
-                                        <td className="p-3 font-semibold text-[#ff3f6c] text-center">${item.price}</td>
+                                        <td className="p-3 font-semibold text-[#ff3f6c] text-center">
+                                            ${item.price}
+                                        </td>
                                         <td className="p-3 text-center align-middle">
                                             <div className="flex items-center justify-center gap-2">
                                                 {/* Decrease quantity buttons */}
@@ -80,10 +99,13 @@ const CartPage = () => {
                                                     className="px-3 py-1 bg-gray-200 text-[#ff3f6c] rounded-full shadow hover:bg-gray-300 hover:scale-110 transition-all duration-200"
                                                     onClick={() => decreaseQuantity(item.id)}
                                                     aria-label="Decrease quantity"
-                                                >-
+                                                >
+                                                    -
                                                 </button>
                                                 {/* Show current quantity */}
-                                                <span className="font-semibold font-lg mx-2 text-blue-600">{item.quantity}</span>
+                                                <span className="font-semibold font-lg mx-2 text-blue-600">
+                                                    {item.quantity}
+                                                </span>
                                                 {/* Increase quantity button */}
                                                 <button
                                                     className="px-3 py-1 bg-gray-200 text-[#ff3f6c] rounded-full shadow hover:bg-gray-300 hover:scale-110 transition-all duration-200"
@@ -118,7 +140,9 @@ const CartPage = () => {
                         {/* Subtotal calculation */}
                         <p className="text-lg">
                             Subtotal:{" "}
-                            <span className="font-semibold text-gray-800">${totalAmount.toFixed(2)}</span>
+                            <span className="font-semibold text-gray-800">
+                                ${totalAmount.toFixed(2)}
+                            </span>
                         </p>
                         {/* Discount calculation */}
                         <p className="text-lg">
@@ -130,9 +154,7 @@ const CartPage = () => {
                         {/* Final amount calculation */}
                         <p className="text-xl font-bold">
                             Total:{" "}
-                            <span className="text-[#ff3f6c]">
-                                ${finalAmount.toFixed(2)}
-                            </span>
+                            <span className="text-[#ff3f6c]">${finalAmount.toFixed(2)}</span>
                         </p>
                     </div>
                 </section>
